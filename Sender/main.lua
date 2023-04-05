@@ -27,7 +27,7 @@ function table.shallow_copy(t)
 end
 
 function generateControls(controls)
-  local COLS = 4
+  local COLS = math.min(#controls, 4)
   local ROWS = math.ceil(#controls/COLS)
   local XSPACING = math.floor(constants.SIZE[1]/(COLS+1))
   local YSPACING = math.floor(constants.SIZE[2]/(ROWS+1))
@@ -148,8 +148,8 @@ function passwordMenu()  -- main menu
 end
 
 function mainMenu()  -- main menu
-  term.setBackgroundColor(constants.BG_COLOR)
   passwordMenu()
+  term.setBackgroundColor(constants.BG_COLOR)
 
   local quitElem = table.shallow_copy(objects.Text):new(
     1, constants.SIZE[2], lineText(" Quit (Q) ")
@@ -245,7 +245,8 @@ function controlMenu()  -- control menu
   term.setBackgroundColor(colors.gray)
 
   local controls = {
-    {1, "title", function (self) handleControl(self, 15) end},
+    {1, "He", function (self) handleControl(self, 15) end},
+    {2, "Te1", function (self) handleControl(self, 17) end},
   }
   controls = generateControls(controls)
 

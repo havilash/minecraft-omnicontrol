@@ -20,7 +20,7 @@ end
 
 rednet.open("top")
 print("[STARTING] receiver is starting (id: "..os.getComputerID()..") ...")
-print("[LISTENING] receiver is listening on protocol: "..constants.PROTOCOL.."...")
+print("[LISTENING] receiver is listening on protocol: "..constants.PROTOCOL.." ...")
 
 while true do
     senderID, msg = rednet.receive(constants.PROTOCOL)
